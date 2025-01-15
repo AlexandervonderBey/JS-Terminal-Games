@@ -33,7 +33,7 @@ Validation:
 1) if argv has no string throw error - check
 2) if argv has no number throw error - check
 3) if no string or number has been passed throw an error - check
-4) if more than 1 string literal is passed throw an error
+4) if more than 1 string literal is passed throw an error - check
 */ 
 //#################################################################################################
 
