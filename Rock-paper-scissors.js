@@ -15,7 +15,7 @@ function progressBar(callback) {
 progressBar(() => {
 
     // Initiation of variables + conversion of user input to lower case for further processing
-    const args = process.argv.slice(2).map(arg => arg.toLowerCase());; 
+    const args = process.argv.slice(2).map(arg => arg.toLowerCase());
     const optionsArray = ["rock", "paper", "scissors"];
     let userInput;
     let computerInput;
