@@ -43,7 +43,7 @@ Validation:
 const args = process.argv.slice(2).map(arg => arg.toLowerCase());
 const alphabetArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g','h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-// Filter out string from args and return a string (not array)
+// Filter out string from args and return a string (not array -> split)
 const stringExpression = args.filter(arg => isNaN(arg)).join(' ');
 
 // Split string into single letters and store in an array
@@ -54,17 +54,33 @@ const shiftNumber = parseInt(args[1], 10) % 26;
 
 // Check index of letters in alphabet array
 const shiftedArray = singleLetters.map((letter) => {
+
+    // Return spaces
     if (letter === ' ') {
-        return ' '; // keep space
+        return ' ';
     }
+
+    // Find index in alphabet array
     const index = alphabetArray.indexOf(letter);
+
+    // Return symbols
     if (index === -1) {
-        return letter; // handle punctuation
+        return letter;
     }
+
+    // Calculate shifted index
     let shiftedIndex = index + shiftNumber;
+
+    // Reset shiftedIndex > 25
     if (shiftedIndex > 25) {
-        shiftedIndex -= 26; 
+        shiftedIndex -= 26;
     }
+
+    // Reset shiftedIndex < 0
+    if (shiftedIndex < 0) {
+        shiftedIndex += 26;
+    }
+
     return alphabetArray[shiftedIndex];
 });
 
@@ -79,7 +95,7 @@ if (!stringExpression && !shiftNumber) {
 } else if (!stringExpression) {
     console.error("Please provide a string literal to be encrypted in the following format: 'example'");
 } else if (!shiftNumber) {
-    console.error("Please provide a number after the string literal for encryption.");
+    console.error("Please provide any number after the string literal for encryption.");
 }
 
 // Loading animation
@@ -91,7 +107,7 @@ const timerFinished = () => {
     clearInterval(interval); // Stop the interval
     process.stdout.clearLine();
     process.stdout.cursorTo(0);
-    process.stdout.write(`Encrypting: 100%\n`); 
+    process.stdout.write(`Encryption: 100%\n`); 
     console.log("Completed!");
 
     // Encrypted output and convert to string literal
