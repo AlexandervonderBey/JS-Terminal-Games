@@ -28,6 +28,7 @@ Process flow:
     7.1) keep spaces and punctuation
 8) add the shift number to get shifted letters - check
     8.1) if the index exceeds 25, it must reset and count from 0 onwards - check  
+    8.2 ) if the index is less than 0, it must reset from 26 - check
 
 Validation:
 1) if argv has no string throw error - check
