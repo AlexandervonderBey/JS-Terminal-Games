@@ -25,7 +25,7 @@ Process flow:
 5) split into new array with all single letters as elements - check
 6) store shift number to a variable - check
 7) check which index the current letter has in the alphabet - check
-    7.1) keep spaces and punctuation
+    7.1) keep spaces and punctuation - check
 8) add the shift number to get shifted letters - check
     8.1) if the index exceeds 25, it must reset and count from 0 onwards - check  
     8.2 ) if the index is less than 0, it must reset from 26 - check
@@ -53,7 +53,7 @@ const singleLetters = stringExpression.split('');
 // Store shift number in a variable ignoring decimal places and including remainder of 26 to stay in alphabet interval 
 const shiftNumber = parseInt(args[1], 10) % 26;
 
-// Check index of letters in alphabet array
+// Convert input
 const shiftedArray = singleLetters.map((letter) => {
 
     // Return spaces
